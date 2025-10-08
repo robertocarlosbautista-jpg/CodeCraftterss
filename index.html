@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CodeCrafters</title>
+  <link rel="stylesheet" href="styles.css" />
+  <style>
+    /* Carrusel corregido */
+    .carrusel {
+      width: 200px;
+      height: 450px;
+      position: relative;
+      overflow: hidden;
+      margin-top: 10px;
+    }
+
+    .slide {
+      width: 100%;
+      height: 100%;
+      position: absolute;
+      top: 0;
+      left: 0;
+      display: none;
+      object-fit: cover;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="header-overlay">
+      <h1>App Mercedaria</h1>
+    </div>
+  </header>
+
+  <nav>
+    <ul>
+      <li><a href="inicio.html" target="contenido">Inicio</a></li>
+      <li><a href="acerca.html" target="contenido">Acerca de</a></li>
+      <li><a href="servicios.html" target="contenido">Servicios</a></li>
+      <li><a href="contacto.html" target="contenido">Contacto</a></li>
+      <li><a href="FLUJOGRAMA.html" target="contenido">Flujograma</a></li>
+      <li><a href="Descarga.html" target="contenido">Descarga</a></li>
+    </ul>
+  </nav>
+
+  <main class="layout">
+    <aside class="sidebar left">
+      <h3></h3>
+      <img src="images (6).jpg" alt="Descripción" width="200" height="200">
+    </aside>
+
+    <section class="main-content">
+      <iframe name="contenido" src="inicio.html"></iframe>
+    </section>
+
+    <aside class="sidebar right">
+      <div class="carrusel">
+        <img src="app1.jpeg" class="slide" style="display:block;">
+        <img src="app2.jpeg" class="slide">
+        <img src="app3.jpeg" class="slide">
+      </div>
+    </aside>
+  </main>
+
+  <footer>
+    <p>&copy; Diseñado por: Coderafters</p>
+  </footer>
+
+  <script>
+    let index = 0;
+    const slides = document.getElementsByClassName("slide");
+
+    function mostrarSlide() {
+      for (let i = 0; i < slides.length; i++) {
+        slides[i].style.display = "none";
+      }
+      index = (index + 1) % slides.length;
+      slides[index].style.display = "block";
+      setTimeout(mostrarSlide, 5000);
+    }
+
+    mostrarSlide();
+  </script>
+</body>
+</html>
